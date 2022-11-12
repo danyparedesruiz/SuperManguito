@@ -5,7 +5,7 @@ import clasesDAO.EmprendedorDAOHibernateJPA;
 import clasesDAO.EmprendimientoDAOHibernateJPA;
 import model.Emprendedor;
 import model.Emprendimiento;
-
+//creando rama develop
 public class Prueba {
 
 	public static void main(String[] args) {
