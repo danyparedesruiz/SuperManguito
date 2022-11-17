@@ -37,7 +37,7 @@ import model.Emprendimiento;
   @PostMapping
   public ResponseEntity<void> createEmp(@RequestBody Emprendimiento emp) {
     System.out.println("Creando el emprendimiento" + emp.getName());//creo que todo esto tiene que ir en models o en DAO, no estoy seguro
-    if (emprendimientoService.isUserExist(emp)) {
+    if (emprendimientoService.isEmprendimientoExist(emp)) {
       System.out.println("Ya existe un emprendimiento con nombre " + emp.getName());
       return new ResponseEntity<void>(HttpStatus.CONFLICT); 
     }
@@ -50,7 +50,7 @@ import model.Emprendimiento;
   public ResponseEntity<Emprendimiento> updateEmp(@PathVariable("id") long id, @RequestBody Emprendimiento emp) {
     System.out.println("Actualizando el emprendimiento " + id);
     Emprendimiento empActual = emprendimientoService.findById(id);
-    if (currentUser==null) {
+    if (empActual==null) {
       System.out.println("Emprendimiento con id " + id + " no encontrado");
       return new ResponseEntity<Emprendimiento>(HttpStatus.NOT_FOUND);
     }
